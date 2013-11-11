@@ -1,7 +1,7 @@
 # Angular Express Bootstrap Seed
 
-Start an awesome app with AngularJS 1.2.0-rc3 and Bootstrap 3 on the front, Express 3.2.6 + Jade 
-+ Node on the back. This project is an application skeleton for a typical 
+Start an awesome app with AngularJS 1.2.0-rc3 and Bootstrap 3 on the front, Express 3.2.6 + Jade + Node 
+on the back. This project is an application skeleton for a typical 
 [AngularJS](http://angularjs.org/) web app for those who want to use Node to serve their app.
 
 The seed contains angular libraries, test libraries and a bunch of scripts all preconfigured for
