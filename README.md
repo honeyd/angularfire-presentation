@@ -1,8 +1,8 @@
-# Angular Express Seed
+# Angular Express Bootstrap Seed
 
-Start an awesome app with AngularJS on the front, Express + Node on the back. This project is an
-application skeleton for a typical [AngularJS](http://angularjs.org/) web app for those who want
-to use Node to serve their app.
+Start an awesome app with AngularJS 1.2.0-rc3 and Bootstrap 3 on the front, Express 3.2.6 + Jade 
++ Node on the back. This project is an application skeleton for a typical 
+[AngularJS](http://angularjs.org/) web app for those who want to use Node to serve their app.
 
 The seed contains angular libraries, test libraries and a bunch of scripts all preconfigured for
 instant web development gratification. Just clone the repo (or download the zip/tarball) and
@@ -15,9 +15,9 @@ _Note: Although Jade supports interpolation, you should be doing that mostly on 
 server and browser templating will convolute your app. Instead, use Jade as a syntactic sugar for
 HTML, and let AngularJS take care of interpolation on the browser side._
 
-## How to use angular-express-seed
+## How to use angular-express-bootstrap-seed
 
-Clone the angular-express-seed repository, run `npm install` to grab the dependencies, and start hacking!
+Clone the angular-express-bootstrap-seed repository, run `npm install` to grab the dependencies, and start hacking!
 
 ### Running the app
 
@@ -43,17 +43,14 @@ Just fetch the changes and merge them into your project with git.
         app.css         --> default stylesheet
       img/              --> image files
       js/               --> javascript files
-        app.js          --> declare top-level app module
-        controllers.js  --> application controllers
-        directives.js   --> custom angular directives
-        filters.js      --> custom angular filters
-        services.js     --> custom angular services
+        app.js          --> angular app: controllers, directives, filters, and services
         lib/            --> angular and 3rd party JavaScript libraries
           angular/
-            angular.js            --> the latest angular js
-            angular.min.js        --> the latest minified angular js
-            angular-*.js          --> angular add-on modules
-            version.txt           --> version number
+            1.2.0-rc.3
+              angular.js            --> the latest angular js
+              angular.min.js        --> the latest minified angular js
+              angular-*.js          --> angular add-on modules
+              version.txt           --> version number
     routes/
       api.js            --> route for serving JSON
       index.js          --> route for serving HTML pages and partials
@@ -65,15 +62,10 @@ Just fetch the changes and merge them into your project with git.
         partial2.jade
 
 
-
-## Example App
-
-A simple [blog](https://github.com/btford/angular-express-blog) based on this seed.
-
-
 ## Contact
 
 For more information on AngularJS please check out http://angularjs.org/
+For more informaiton on Bootstrap go here http://getbootstrap.com/
 For more on Express and Jade, http://expressjs.com/ and http://jade-lang.com/ are
 your friends.
 
