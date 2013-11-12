@@ -1,1 +1,6 @@
 /* app css stylesheet */
+
+p, label, input {
+	font-size: 130%;
+}
+

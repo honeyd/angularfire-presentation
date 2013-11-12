@@ -1,0 +1,25 @@
+h1 AngularJS + AngularFire
+div.well
+  form(role='form')
+    div.form-group
+      label(for='mystring') My String
+      input.form-control#mystring(type='text', ng-model='mystring')
+  h2 {{mystring}}
+pre.prettyprint(style="font-size: 130%", ng-non-bindable)
+  code.lang-html.
+    &lt;body ng-app&gt;
+      &lt;div ng-controller="MyApp"&gt;
+        &lt;label&gt;
+        &lt;input type="text" ng-model="mystring" /&gt;
+        &lt;h2&gt;&#123;&#123;mystring&#125;&#125;&lt;/h2&gt;
+      &lt;/div&gt;
+    &lt;/body&gt;
+    &lt;script&gt;
+      angular.module("myModule", ["firebase"]).
+      controller("myApp", function($scope, angularFire) {
+        $scope.mystring = "";
+        var ref = new Firebase("https://examples.firebaseio.com/mystring");
+        angularFire(ref, $scope, "mystring", "");
+      });
+    &lt;/script&gt;
+div.pull-left(style="font-size: 90%; color: #AAA") 4/7

@@ -4,76 +4,80 @@
 
 angular.module('myApp', [
   'myApp.controllers',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'ngRoute'
+  'ngRoute',
+  'firebase'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/view1', {
-      templateUrl: 'partials/partial1',
-      controller: 'MyCtrl1'
+    when('/home', {
+      templateUrl: 'partials/home',
+      controller: 'HomeCtrl'
     }).
-    when('/view2', {
-      templateUrl: 'partials/partial2',
-      controller: 'MyCtrl2'
+    when('/overview', {
+      templateUrl: 'partials/overview',
+      controller: 'OverviewCtrl'
+    }).
+    when('/angularjs', {
+      templateUrl: 'partials/angularjs',
+      controller: 'AngularJSCtrl'
+    }).
+    when('/demo', {
+      templateUrl: 'partials/demo',
+      controller: 'DemoCtrl'
+    }).
+    when('/more-demo', {
+      templateUrl: 'partials/more-demo',
+      controller: 'MoreDemoCtrl'
+    }).
+    when('/forge', {
+      templateUrl: 'partials/forge',
+      controller: 'ForgeCtrl'
+    }).
+    when('/end', {
+      templateUrl: 'partials/end',
+      controller: 'EndCtrl'
     }).
     otherwise({
-      redirectTo: '/view1'
+      redirectTo: '/home'
     });
 
   $locationProvider.html5Mode(true);
 });
 
-/* Services */
-
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
-
-/* Directives */
-
-angular.module('myApp.directives', []).
-  directive('appVersion', function (version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    };
-  });
-
-/* Filters */
-
-angular.module('myApp.filters', []).
-  filter('interpolate', function (version) {
-    return function (text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    }
-  });
-
-
 /* Controllers */
 
 angular.module('myApp.controllers', []).
-  controller('AppCtrl', function ($scope, $http) {
-
-    $http({
-      method: 'GET',
-      url: '/api/name'
-    }).
-    success(function (data, status, headers, config) {
-      $scope.name = data.name;
-    }).
-    error(function (data, status, headers, config) {
-      $scope.name = 'Error!'
+  controller('AppCtrl', function($scope, $location) {
+    
+    $scope.$on('$viewContentLoaded', function() {
+      prettyPrint();
     });
 
-  }).
-  controller('MyCtrl1', function ($scope) {
-    // write Ctrl here
+    $scope.isActive = function (viewLocation) {
+      return viewLocation === $location.path();
+    };
 
   }).
-  controller('MyCtrl2', function ($scope) {
-    // write Ctrl here
+  controller('HomeCtrl', function ($scope) {
+
+  }).
+  controller('OverviewCtrl', function ($scope) {
+
+  }).
+  controller('AngularJSCtrl', function ($scope) {
+
+  }).
+  controller('DemoCtrl', function ($scope, angularFire) {
+    $scope.mystring = "";
+    var ref = new Firebase("https://examples.firebaseio.com/mystring");
+    angularFire(ref, $scope, "mystring", "");
+  }).
+  controller('MoreDemoCtrl', function ($scope) {
+
+  }).
+  controller('ForgeCtrl', function ($scope) {
+    
+  }).
+  controller('EndCtrl', function ($scope) {
 
   });
